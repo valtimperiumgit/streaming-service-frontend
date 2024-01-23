@@ -1,0 +1,30 @@
+.main-welcome-preview{
+    height: 439px;
+    width: 100%;
+    padding-top: 72px;
+    padding-bottom: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: solid #232323 10px;
+}
+
+.main-welcome-preview-text{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.main-welcome-preview-text-title{
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+.main-welcome-preview-text-content{
+    font-size: 1.5rem;
+    margin-top: 15px;
+    font-weight: 400;
+    width: 500px;
+    text-align: start;
+}

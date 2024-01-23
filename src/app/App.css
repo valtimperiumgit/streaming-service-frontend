@@ -1,0 +1,19 @@
+@font-face {
+  font-family: 'NSans-Medium';
+  src: url('../../public/fonts/NetflixSans_W_Rg.woff2') format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NSans-Bold';
+  src: url('../../public/fonts/NetflixSans_W_Blk.woff2') format("woff2");
+  font-weight: bold;
+  font-style: normal;
+}
+
+.App {
+  overflow-x: hidden;
+  text-align: center;
+}
+

@@ -1,0 +1,26 @@
+.main-header{
+    width: 1170px;
+    height: 44px;
+    padding: 24px 48px 24px 48px;
+    margin-right: 127px;
+    margin-left: 127px;
+    display: flex;
+}
+
+.main-header-logo-container{
+    display: flex;
+    justify-content: start;
+    align-items: start;
+    width: 380px;
+    margin-left: 16px;
+}
+
+.main-header-sign-in-button-container{
+    display: flex;
+    width: 799px;
+    justify-content: flex-end;
+}
+
+main-header-sign-in-button-container button{
+
+}

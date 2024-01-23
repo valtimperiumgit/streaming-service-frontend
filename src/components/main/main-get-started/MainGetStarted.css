@@ -1,0 +1,49 @@
+.main-get-started{
+    color: white;
+    font-family: 'NSans-Medium', sans-serif;
+    margin-top: 190px;
+    margin-bottom: 119px;
+}
+
+.main-get-started-title{
+    font-size: 3rem;
+    font-family: 'NSans-Bold', sans-serif;
+    font-weight: 900;
+}
+
+.main-get-started-text{
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-top: 10px;
+}
+
+.main-get-started-form{
+    margin-top: 15px;
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    font-family: 'NSans-Medium', sans-serif;
+}
+
+.main-get-started-input{
+    font-family: 'NSans-Medium', sans-serif;
+    line-height: 1.5;
+    padding: 21px 16px 16px 16px;
+    min-height: 16px;
+    min-width: 16px;
+    appearance: none;
+    background: rgba(0, 0, 0, 0.66);
+    background-clip: padding-box;
+    border: 1px solid #5e5e5f;
+    width: 342px;
+    height: 10px;
+    color: white;
+    font-size: 15px;
+    margin-right: 8px;
+    border-radius: 5px;
+}
+
+.main-get-started-input::placeholder{
+    color: #b7b4b4;
+}
