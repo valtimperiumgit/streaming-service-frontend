@@ -1,0 +1,11 @@
+.main-footer-social-networks{
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+.main-footer-social-networks img{
+    width: 35px;
+    height: 35px;
+    margin-right: 20px;
+    cursor: pointer;
+}

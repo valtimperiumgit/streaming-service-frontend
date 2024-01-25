@@ -47,3 +47,30 @@
 .main-get-started-input::placeholder{
     color: #b7b4b4;
 }
+
+.main-get-started-form-error-message{
+    font-size: 14px;
+    display: flex;
+    padding-left: 5px;
+    align-items: flex-start;
+    color: #f52b36;
+    margin-top: 7px;
+}
+
+.main-get-started-input-with-error{
+    font-family: 'NSans-Medium', sans-serif;
+    line-height: 1.5;
+    padding: 21px 16px 16px 16px;
+    min-height: 16px;
+    min-width: 16px;
+    appearance: none;
+    background: rgba(0, 0, 0, 0.66);
+    background-clip: padding-box;
+    border: 1px solid #eb3942;
+    width: 342px;
+    height: 10px;
+    color: white;
+    font-size: 15px;
+    margin-right: 8px;
+    border-radius: 5px;
+}

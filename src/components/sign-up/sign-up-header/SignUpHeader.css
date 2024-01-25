@@ -1,0 +1,34 @@
+.sign-up-header{
+    width: 100%;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: solid 1px #e6e6e6;
+}
+
+.sign-up-header-logo-container{
+    display: flex;
+    justify-content: flex-start;
+    width: 700px;
+}
+
+.sign-up-header-sign-in-button-container{
+    display: flex;
+    justify-content: flex-end;
+    width: 700px;
+}
+
+.sign-up-header-sign-in-button{
+    text-decoration: none;
+    font-family: 'NSans-Medium', sans-serif;
+    font-size: 20px;
+}
+
+.sign-up-header-sign-in-button:hover{
+    border-bottom: 2px solid black;
+}
+
+.sign-up-header-sign-in-button:visited {
+    color: inherit;
+}
