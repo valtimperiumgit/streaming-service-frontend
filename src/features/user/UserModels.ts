@@ -4,6 +4,7 @@ export interface User{
     age: number;
     sex: Sex;
     email: string;
+    profileImageUrl: string;
 }
 
 export enum Sex {

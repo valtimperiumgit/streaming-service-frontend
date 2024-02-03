@@ -17,3 +17,12 @@
   text-align: center;
 }
 
+* {
+  -ms-overflow-style: none;  /* для Internet Explorer и Edge */
+  scrollbar-width: none;  /* для Firefox */
+}
+
+/* Для Webkit-браузеров, таких как Chrome, Safari и Opera */
+*::-webkit-scrollbar {
+  display: none;
+}

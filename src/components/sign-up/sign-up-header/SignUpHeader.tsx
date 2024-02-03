@@ -9,7 +9,7 @@ const SignUpHeader = () => {
             </div>
             
             <div className="sign-up-header-sign-in-button-container">
-                <Link className="sign-up-header-sign-in-button" to={"/"}> Sing In </Link>
+                <Link className="sign-up-header-sign-in-button" to={"/signin"}> Sing In </Link>
             </div>
         </div>
     );

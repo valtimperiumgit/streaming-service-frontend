@@ -1,0 +1,21 @@
+.sign-in-banner{
+    height: 100vh;
+    width: 100%;
+    position: absolute;
+    z-index: -33333;
+}
+
+.sign-in{
+    display: flex;
+    flex-direction: column;
+    background-color: #000000;
+    overflow-x: hidden;
+    position: absolute;
+    width: 100%;
+    z-index: -33334;
+}
+
+.sign-in-first-screen{
+    height: 100vh;
+    background-color: rgba(21, 21, 21, 0.59);
+}

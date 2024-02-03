@@ -1,0 +1,208 @@
+.movie-info-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.401);
+    display: flex;
+    justify-content: center;
+    z-index: 10000;
+    pointer-events: all;
+    overflow: auto;
+    padding-top: 40px;
+}
+
+.movie-info-modal {
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    z-index: 1001;
+    background-color: #181818;
+    width: 930px;
+    height: max-content;
+    display: flex;
+    position: relative;
+    color: white;
+    flex-direction: column;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+.movie-info-modal-image{
+    height: 500px;
+}
+
+.movie-info-modal-actions{
+    display: flex;
+    width: 930px;
+    position: absolute;
+    top: 380px;
+    left: 45px;
+    z-index: 1
+}
+
+.movie-info-modal-actions-play{
+    color: black;
+    background-color: white;
+    border-radius: 4px;
+    width: 140px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'NSans-Bold', sans-serif;
+    margin-right: 14px;
+    font-size: 19px;
+    cursor: pointer;
+}
+
+.movie-info-modal-actions-play:hover{
+    background-color: #e6e6e6;
+}
+
+.movie-info-modal-icon{
+    margin-right: 10px;
+}
+
+.movie-info-modal-logo{
+    width: 300px;
+    display: flex;
+    position: absolute;
+    left: 40px;
+    top: 190px;
+    z-index: 1
+}
+
+.movie-info-modal-close-button{
+    border-radius: 50%;
+    background-color: #181818;
+    width: 43px;
+    height: 43px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 30px;
+    left: 850px;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.movie-info-modal-actions-button{
+    border-radius: 50%;
+    border: gray 3px solid;
+    width: 43px;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-right: 10px;
+    background-color: rgba(56, 55, 55, 0.61);
+}
+
+.movie-info-modal-actions-button:hover{
+    border: white 3px solid;
+}
+
+.movie-info-modal-actions-button-icon-dislike{
+    margin-top: 6px;
+}
+
+.movie-info-modal-actions-button-liked{
+    border-radius: 50%;
+    border: #46d369 3px solid;
+    width: 43px;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-right: 10px;
+    background-color: rgba(56, 55, 55, 0.61);
+}
+
+.movie-info-modal-actions-button-disliked{
+    border-radius: 50%;
+    border: #f52b36 3px solid;
+    width: 43px;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-right: 10px;
+    background-color: rgba(56, 55, 55, 0.61);
+}
+
+.movie-info-modal-main-info{
+    display: flex;
+    font-family: 'NSans-Medium', sans-serif;
+    width: 930px;
+    font-size: 18px;
+    text-align: start;
+}
+
+.movie-info-modal-second-part{
+    padding: 30px 50px 50px 50px;
+    display: flex;
+    width: 700px;
+    margin-bottom: 50px;
+}
+
+.movie-info-modal-main-info-left{
+    width: 520px;
+    margin-right: 60px;
+}
+
+.movie-info-modal-main-info-right{
+    width: 230px;
+    margin-right: 60px;
+}
+
+
+.movie-info-modal-main-info-left-number-info{
+    display: flex;
+    margin-bottom: 20px;
+}
+
+.movie-info-modal-main-info-left-number-info-match{
+    color: #46d369;
+    font-family: 'NSans-Bold', sans-serif;
+    margin-right: 10px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.movie-info-modal-main-info-left-number-info-numbers{
+    color: #c5c5c5;
+    font-size: 18px;
+    font-family: 'NSans-Medium', sans-serif;
+    margin-right: 10px;
+}
+
+.movie-info-modal-main-info-left-number-info-m-rating{
+    font-family: 'NSans-Medium', sans-serif;
+    border: 1px solid #8a8a8a;
+    font-size: 15px;
+    padding: 3px 3px 3px 3px;
+}
+
+.movie-info-modal-main-info-left-description{
+    font-family: 'NSans-Medium', sans-serif;
+    letter-spacing: normal;
+    font-size: 16px;
+}
+
+.movie-info-modal-main-right-title{
+    color: #767676;
+    font-family: 'NSans-Medium', sans-serif;
+    font-size: 14px;
+}
+
+.movie-info-modal-main-right-section{
+    margin-bottom: 15px;
+    font-size: 14px;
+}

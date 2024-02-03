@@ -1,0 +1,15 @@
+.sign-up-regform-server-error{
+    background-color: #d89d31;
+    color: #000000;
+    width: 406px;
+    height: 40px;
+    padding: 17px 17px 17px 17px;
+    border-radius: 0.25rem;
+    border-color: #d89d31;
+    margin-bottom: 23px;
+    font-family: 'NSans-Medium', sans-serif;
+}
+
+.sign-up-regform-server-error-bold{
+    font-family: 'NSans-Bold', sans-serif;
+}

@@ -1,14 +1,19 @@
 import "./SignUp.css"
 import SignUpHeader from "../../components/sign-up/sign-up-header/SignUpHeader";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import SignUpRegistrationForm from "../../components/sign-up/sign-up-regform/SignUpRegistrationForm";
 import SignUpInfoForm from "../../components/sign-up/sign-up-info-form/SignUpInfoForm";
 import {useFormik} from "formik";
 import * as Yup from 'yup';
-import {RegistrationRequest} from "../../features/user/sign-up/api/SignUpRequests";
+import {SignUpRequest} from "../../features/user/api/UserRequests";
 import {Sex} from "../../features/user/UserModels";
-import {useSelector} from "react-redux";
-import {userState} from "../../features/user/store/UserSlice";
+import {useDispatch, useSelector} from "react-redux";
+import {registrationAsyncThunk, userState} from "../../features/user/store/UserSlice";
+import {registrationValidationSchema} from "../../features/user/validations/SignUpValidation";
+import {AppDispatch} from "../../store/Store";
+import {getCountriesAsyncThunk} from "../../features/countries/store/CountriesSlice";
+import {useNavigate} from "react-router-dom";
+import {checkUserExistingByEmail} from "../../features/user/api/UserService";
 
 const SignUpContentModes = {
     REG_FORM: 'reg-form',
@@ -16,27 +21,38 @@ const SignUpContentModes = {
 };
 
 const SignUp = () => {
+    const dispatch: AppDispatch = useDispatch();
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        dispatch(getCountriesAsyncThunk());
+    }, [dispatch])
 
     const [contentMode, setContentMode] = useState(SignUpContentModes.REG_FORM);
 
+    const [isAccountAlreadyExist, setIsAccountAlreadyExist] = useState(false);
+
     const handleNextButtonClick = () =>{
-        setContentMode(SignUpContentModes.INFO_FORM);
+        checkUserExistingByEmail(registrationFormik.values.email)
+            .then((res) => {
+                if(res?.data.value === false)
+                {
+                    setContentMode(SignUpContentModes.INFO_FORM);
+                }
+                else if(res?.data.value === true)
+                {
+                    setIsAccountAlreadyExist(true);
+                }
+            })
+
     }
 
-    const registrationValidationSchema = Yup.object().shape({
-        email: Yup.string()
-            .required('✖ Email is required.')
-            .email('✖ Please enter a valid email address'),
-        password: Yup.string()
-            .required('✖ Password is required')
-            .length(4, "✖ Minimum password length - 4 characters."),
-    });
+    const userSlice = useSelector(userState);
 
-    const userSelector = useSelector(userState);
-
-    const registrationFormik= useFormik<RegistrationRequest>({
+    const registrationFormik= useFormik<SignUpRequest>({
         initialValues: {
-            email: userSelector.userSlice.tempEmail,
+            email: userSlice.tempEmail,
+            name: "",
             age: 18,
             sex: Sex.NotDefined,
             password: "",
@@ -44,8 +60,14 @@ const SignUp = () => {
         },
         validationSchema: registrationValidationSchema,
         onSubmit: values => {
-            console.log("Success submit")
-            console.log(values)
+
+            const transformedValues = {
+                ...values,
+                sex: Number(values.sex),
+                countryId: Number(values.countryId)
+            };
+
+            dispatch(registrationAsyncThunk(transformedValues)).then(() => navigate("/browse"));
         },
     });
 
@@ -61,12 +83,16 @@ const SignUp = () => {
                     nextButtonClick={handleNextButtonClick}
                     formikErrors={registrationFormik.errors}
                     formikTouched={registrationFormik.touched}
-                    formikHandleBlur={registrationFormik.handleBlur}/>}
+                    formikHandleBlur={registrationFormik.handleBlur}
+                    isAccountAlreadyExist={isAccountAlreadyExist}/>}
 
                 {contentMode === SignUpContentModes.INFO_FORM &&
                     <SignUpInfoForm
                     formikValues={registrationFormik.values}
                     formikHandleChange={registrationFormik.handleChange}
+                    formikErrors={registrationFormik.errors}
+                    formikTouched={registrationFormik.touched}
+                    formikHandleBlur={registrationFormik.handleBlur}
                     backToPreviousStep={() => {setContentMode(SignUpContentModes.REG_FORM)}}/>}
             </form>
         </div>

@@ -33,6 +33,10 @@
     margin-right: 12px;
 }
 
+.sign-up-info-form-buttons{
+    margin-top: 15px;
+}
+
 .sign-up-info-form-buttons-submit-button:hover{
     background-color: #f6121d;
 }
@@ -54,4 +58,60 @@
 
 .sign-up-info-form-buttons-previous-button:hover{
     background-color: #252525;
+}
+
+.sign-up-info-form-select{
+    font-weight: 400;
+    font-family: 'NSans-Medium', sans-serif;
+    width: 215px;
+    padding-left: 16px;
+    height: 56px;
+}
+
+.sign-up-info-steps{
+    text-align: start;
+    width: 440px;
+    font-family: 'NSans-Medium', sans-serif;
+    font-size: 13px;
+    margin-bottom: 8px;
+}
+
+.sign-up-info-title{
+    text-align: start;
+    width: 440px;
+    font-family: 'NSans-Bold', Helvetica Neue,Segoe UI,Roboto,Ubuntu,sans-serif;
+    font-size: 26px;
+    margin-bottom: 14px;
+}
+
+.sign-up-info-text{
+    text-align: start;
+    width: 440px;
+    font-size: 18px;
+    font-family: 'NSans-Medium', sans-serif;
+    margin-bottom: 4px;
+    color: #333;
+}
+
+.sign-up-info-form-active-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    margin-top: 14px;
+}
+
+.sign-up-info-form-buttons-submit-button-disabled{
+    width: 215px;
+    height: 58px;
+    background-color: #494646;
+    color: #c5c0c0;
+    border-radius: 4px;
+    font-size: 24px;
+    border: 1px solid #494646;
+    font-weight: 400;
+    font-family: 'NSans-Medium', sans-serif;
+    text-align: center;
+    margin-top: 14px;
+    cursor: pointer;
+    margin-right: 12px;
 }

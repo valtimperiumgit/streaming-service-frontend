@@ -1,0 +1,108 @@
+.top-page-player{
+    height: 864px;
+    width: 100%;
+    z-index: 77;
+}
+
+.top-page-player-actions-container{
+    width: 100vw;
+    display: flex;
+    position: absolute;
+    right: 20px;
+    top: 570px;
+    z-index: 1
+}
+
+.top-page-player-logo{
+    width: 300px;
+    display: flex;
+    position: absolute;
+    left: 80px;
+    top: 360px;
+    z-index: 1
+}
+
+.top-page-player-volume-button{
+    border-radius: 50%;
+    width: 49px;
+    height: 49px;
+    background-color: rgba(0, 0, 0, 0);
+    text-decoration: none;
+    border: 1px solid gray;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+.top-page-player-volume-button:hover{
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.top-page-player-left-actions{
+    width: 50vw;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    padding-left: 100px;
+}
+
+.top-page-player-right-actions{
+    width: 1020px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.top-page-player-right-actions-maturity-rating{
+    background-color: rgba(33, 33, 33, 0.56);
+    width: 80px;
+    height: 43px;
+    color: white;
+    align-items: center;
+    justify-items: start;
+    display: flex;
+    padding-left: 10px;
+    border-left: 3px solid white;
+    font-family: 'NSans-Medium', sans-serif;
+    font-size: 19px;
+}
+
+.top-page-player-play{
+    color: black;
+    background-color: white;
+    border-radius: 4px;
+    width: 140px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'NSans-Bold', sans-serif;
+    margin-right: 14px;
+    font-size: 19px;
+    cursor: pointer;
+}
+
+.top-page-player-info{
+    color: #ffffff;
+    background-color: rgba(150, 150, 150, 0.58);
+    border-radius: 4px;
+    width: 170px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'NSans-Bold', sans-serif;
+    font-size: 19px;
+    cursor: pointer;
+}
+
+.top-page-player-icon{
+    margin-right: 10px;
+}
+
+.top-page-player-info:hover{
+    background-color: rgba(136, 136, 136, 0.27);
+}
+
+.top-page-player-play:hover{
+    background-color: rgba(255, 255, 255, 0.62);
+}

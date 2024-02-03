@@ -78,3 +78,18 @@
     margin-top: 7px;
     margin-bottom: 10px;
 }
+
+.sign-up-regform-button-disabled{
+    width: 442px;
+    height: 58px;
+    background-color: #494646;
+    color: #c5c0c0;
+    border-radius: 4px;
+    font-size: 24px;
+    border: 1px solid #494646;
+    font-weight: 400;
+    font-family: 'NSans-Medium', sans-serif;
+    text-align: center;
+    margin-top: 14px;
+    cursor: pointer;
+}
