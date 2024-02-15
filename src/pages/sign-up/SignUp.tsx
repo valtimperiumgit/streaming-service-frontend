@@ -67,7 +67,7 @@ const SignUp = () => {
                 countryId: Number(values.countryId)
             };
 
-            dispatch(registrationAsyncThunk(transformedValues)).then(() => navigate("/browse"));
+            dispatch(registrationAsyncThunk(transformedValues)).then(() => navigate("/browse/movies"));
         },
     });
 

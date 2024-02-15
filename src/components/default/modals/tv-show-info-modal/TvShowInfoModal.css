@@ -1,0 +1,45 @@
+.tv-show-info-modal-episodes-header{
+    display: flex;
+}
+
+.tv-show-info-modal-episodes{
+    width: 100%;
+    margin-top: 60px;
+    margin-bottom: 100px;
+}
+
+.tv-show-info-modal-episodes-header-title{
+    color: white;
+    font-family: 'NSans-Medium', sans-serif;
+    font-size: 26px;
+}
+
+.tv-show-info-modal-episodes-header-seasons-select-container{
+    display: flex;
+    justify-content: end;
+    margin-left: 500px;
+}
+
+
+
+.tv-show-info-modal-episodes-header-seasons-select{
+    height: 44px;
+    width: 200px;
+    background-color: rgb(36, 36, 36);
+    color: white;
+    font-family: 'NSans-Medium', sans-serif;
+    font-size: 19px;
+    padding-left: 20px;
+    border: 0.1em solid rgb(77, 77, 77);
+    border-radius: 0.2em;
+    padding-right: 5px;
+}
+
+.tv-show-info-modal-episodes-episodes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 830px;
+    flex-direction: column;
+    padding-top: 40px;
+}

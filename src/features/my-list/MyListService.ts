@@ -38,3 +38,39 @@ export const removeMovieFromMyList = async (movieId: string) => {
         }
     }
 }
+
+export const addTvShowToMyList = async (tvShowId: string) => {
+    try {
+        const params = {
+            tvShowId: tvShowId
+        }
+
+        return await authorizedAxiosInstance.post(`${API_URL}/api/user/my-list/tv-shows`, {},{params});
+    }
+    catch (error) {
+        if (axios.isAxiosError(error)) {
+            const axiosError = error as AxiosError<ErrorResponse>;
+            if (axiosError.response) {
+                throw Error(axiosError.response.data.detail);
+            }
+        }
+    }
+}
+
+export const removeTvShowFromMyList = async (tvShowId: string) => {
+    try {
+        const params = {
+            tvShowId: tvShowId
+        }
+
+        return await authorizedAxiosInstance.delete(`${API_URL}/api/user/my-list/tv-shows`, {params});
+    }
+    catch (error) {
+        if (axios.isAxiosError(error)) {
+            const axiosError = error as AxiosError<ErrorResponse>;
+            if (axiosError.response) {
+                throw Error(axiosError.response.data.detail);
+            }
+        }
+    }
+}

@@ -1,3 +1,110 @@
 .movies{
     background-color: #141414;
+    min-height: 100%;
+}
+
+.movies-list{
+    width: 1600px;
+    display: flex;
+    padding-left: 80px;
+    padding-right: 80px;
+    flex-wrap: wrap;
+}
+
+.movies-genres{
+    color: white;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    left: 80px;
+    top: 80px;
+    z-index: 100;
+    font-family: 'NSans-Medium', sans-serif;
+    font-size: 34px;
+}
+
+.movies-genres-title{
+    margin-right: 20px;
+}
+
+.movies-genres-select{
+    width: 120px;
+    height: 30px;
+    background-color: #000000;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.87);
+    color: white;
+    padding-left: 5px;
+    font-family: 'NSans-Medium', sans-serif;
+    padding-right: 4px;
+}
+
+.movies-genres div{
+    z-index: 1
+}
+
+/* Основные стили для контейнера */
+.your-custom-class {
+    font-family: 'Arial', sans-serif;
+    position: relative;
+    display: inline-block;
+    background-color: #000;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+/* Стили для кнопки селекта */
+.your-select-class {
+    appearance: none;
+    background-color: transparent;
+    border: none;
+    color: #fff;
+    padding: 5px 35px 5px 10px;
+    margin: 0;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Добавляем стили для иконки селекта */
+.your-select-class::after {
+    content: '▼';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    pointer-events: none;
+}
+
+/* Стили для блока опций, который будет показываться при активации селекта */
+.custom-options {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: #141414;
+    border: 1px solid #333;
+    border-top: none;
+    z-index: 1000;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+/* Стили для отдельной опции */
+.your-option-class {
+    color: #fff;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    background-color: transparent;
+    border-bottom: 1px solid #333;
+}
+
+/* Стиль для отображения опций при активации селекта */
+.your-custom-class.active .custom-options {
+    display: block;
 }

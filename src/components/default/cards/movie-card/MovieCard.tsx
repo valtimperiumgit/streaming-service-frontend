@@ -11,13 +11,17 @@ import {useDispatch, useSelector} from "react-redux";
 import {Movie} from "../../../../features/movies/MoviesModels";
 import {getLikePercentage} from "../../../../features/movies/MoviesService";
 import {Genre} from "../../../../features/genres/GenresModels";
+import {useNavigate} from "react-router-dom";
 
 interface MovieCardProps{
     movie?: Movie
+    onHoverAction: Function,
+    openInfo: () => void
 }
 
 const MovieCard = (props: MovieCardProps) => {
     const dispatch: AppDispatch = useDispatch();
+    const navigate = useNavigate();
     const [isHovered, setIsHovered] = useState(false);
     const movie = useSelector(moviesState).movieForInfo;
     const [likePercentage, setLikePercentage] = useState<number>(100);
@@ -52,21 +56,36 @@ const MovieCard = (props: MovieCardProps) => {
 
     return (
         <div
-            onMouseEnter={() => { setIsHovered(true); dispatch(setMovieForInfo(props.movie)) }}
-            onMouseLeave={() => setIsHovered(false)}
+            onMouseEnter={() => {
+                setIsHovered(true);
+                dispatch(setMovieForInfo(props.movie))
+                props.onHoverAction(true);
+            }}
+            onMouseLeave={() => {setIsHovered(false); props.onHoverAction(false); }}
             style={{position: 'relative'}}
             className="movie-card"
         >
-            <img className="movie-card-preview" src="/images/watch-movie.png" alt={""}/>
 
-            {isHovered && (  <div className="movie-card-info">
-                <img src={movie?.imageUrl}
-                     style={{width: "100%", height: "154px", objectFit: "cover"}} alt={""}/>
+            <div style={{ position: "relative", zIndex: "77"}}>
+                <img className="movie-card-preview" src={props.movie?.imageUrl} alt={""}/>
+                <img className="movie-card-preview-logo" src={props.movie?.logoUrl} alt={""}/>
+            </div>
+
+
+            <div className={isHovered ? 'movie-card-info movie-card-info-enter-active' : 'movie-card-info'}>
+
+                <video
+                    src={movie?.trailerUrl}
+                    poster={movie?.imageUrl}
+                    autoPlay={true}
+                    controls={false}
+                    muted={true}
+                    style={{width: "100%", height: "154px", objectFit: "cover"}}/>
 
                 <div className="movie-card-info-actions">
                     <div className="movie-card-info-actions-left">
 
-                        <div className="movie-card-info-actions-left-play">
+                        <div onClick={() => {navigate("watch", {state: {movieId: movie?.id, watchedTime: localStorage.getItem(movie?.id || "")}})}} className="movie-card-info-actions-left-play">
                             <img className="movie-card-info-actions-icon" width="30px" height="30px"
                                  src="/images/play-button.png"
                                  alt=""/>
@@ -98,10 +117,10 @@ const MovieCard = (props: MovieCardProps) => {
                     </div>
 
                     <div className="movie-card-info-actions-right">
-                        <div onClick={handleMyListClick}
+                        <div onClick={props.openInfo}
                              className="movie-info-modal-actions-button">
-                            <img className="movie-info-modal-actions-button-icon" width="26px" height="26px"
-                                 src={movie?.isExistInUserList ? "/images/tick.png" : "/images/plus.png"} alt=""/>
+                            <img className="movie-info-modal-actions-button-icon-arrow" width="26px" height="26px"
+                                 src="/images/arrow-down-sign-to-navigate.png" alt=""/>
                         </div>
                     </div>
                 </div>
@@ -111,14 +130,15 @@ const MovieCard = (props: MovieCardProps) => {
                     <div className="movie-info-modal-main-info-left-number-info-numbers"> {year} </div>
                     <div className="movie-info-modal-main-info-left-number-info-numbers"> {movie?.duration || 0}m</div>
                     <div
-                        className="movie-info-modal-main-info-left-number-info-m-rating" style={{color: "white"}}> {movie?.maturityRating || 0}+
+                        className="movie-info-modal-main-info-left-number-info-m-rating"
+                        style={{color: "white"}}> {movie?.maturityRating || 0}+
                     </div>
                 </div>
 
                 <div className="movie-card-info-genres">
                     {renderMovieGenres(movie?.movieGenres || [])}
                 </div>
-            </div>)}
+            </div>
         </div>
     );
 };

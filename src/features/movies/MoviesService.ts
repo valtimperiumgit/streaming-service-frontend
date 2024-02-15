@@ -6,9 +6,29 @@ import {ErrorResponse} from "../shared/ErrorResponse";
 import {PaginationResponse} from "../shared/PaginationResponse";
 import {Movie} from "./MoviesModels";
 
-export const getMovies = async (pagination: Pagination) => {
+export const getMovies = async () => {
     try {
-        return await authorizedAxiosInstance.post<PaginationResponse<Movie>>(`${API_URL}/api/movies`, pagination);
+        let response = await authorizedAxiosInstance.get<Movie[]>(`${API_URL}/api/movies`);
+        return response.data;
+    }
+    catch (error) {
+        if (axios.isAxiosError(error)) {
+            const axiosError = error as AxiosError<ErrorResponse>;
+            if (axiosError.response) {
+                throw Error(axiosError.response.data.detail);
+            }
+        }
+    }
+}
+
+export const getMovie = async (movieId: string) => {
+    try {
+        const params = {
+            movieId: movieId
+        }
+
+        let response = await authorizedAxiosInstance.get<Movie>(`${API_URL}/api/movies/accurate`, {params});
+        return response.data;
     }
     catch (error) {
         if (axios.isAxiosError(error)) {
@@ -68,7 +88,7 @@ export const getLikePercentage = async (movieId: string) => {
         if (axios.isAxiosError(error)) {
             const axiosError = error as AxiosError<ErrorResponse>;
             if (axiosError.response) {
-                throw Error(axiosError.response.data.detail);
+                console.log(axiosError)
             }
         }
     }

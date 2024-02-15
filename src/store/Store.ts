@@ -2,11 +2,17 @@ import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import userSlice from "../features/user/store/UserSlice";
 import countriesSlice from "../features/countries/store/CountriesSlice";
 import moviesSlice from "../features/movies/store/MoviesSlice";
+import searchSlice, {searchState} from "../features/search/store/SearchSlice";
+import genresSlice from "../features/genres/store/GenresSlice";
+import tvShowsSlice from "../features/tv-shows/store/TvShowsSlice";
 
 const rootReducer = combineReducers({
     userSlice: userSlice,
     countriesSlice: countriesSlice,
-    moviesSlice: moviesSlice
+    moviesSlice: moviesSlice,
+    tvShowsSlice: tvShowsSlice,
+    searchSlice: searchSlice,
+    genresSlice: genresSlice
 });
 
 const store = configureStore({

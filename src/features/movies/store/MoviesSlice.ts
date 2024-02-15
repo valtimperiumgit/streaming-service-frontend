@@ -1,23 +1,31 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 import {RootState} from "../../../store/Store";
 import {Movie} from "../MoviesModels";
-import {dislikeMovie, getMovies, likeMovie} from "../MoviesService";
+import {dislikeMovie, getMovie, getMovies, likeMovie} from "../MoviesService";
 import {Pagination} from "../../shared/Pagination";
 import movies from "../../../pages/movies/Movies";
 import {addMovieToMyList, removeMovieFromMyList} from "../../my-list/MyListService";
+import {Genre} from "../../genres/GenresModels";
 
 interface IState
 {
     movies: Movie[];
     movieForInfo?: Movie;
+    movieForWatching?: Movie;
+    isMoviesLoading: boolean;
+    filteredMovies: Movie[];
 }
 
 const initialState : IState = {
     movies: [],
-    movieForInfo: undefined
+    movieForInfo: undefined,
+    movieForWatching: undefined,
+    isMoviesLoading: false,
+    filteredMovies: []
 };
 
-export const getMoviesAsyncThunk = createAsyncThunk("moviesSlice/getMovies", async (pagination: Pagination) => getMovies(pagination) );
+export const getMoviesAsyncThunk = createAsyncThunk("moviesSlice/getMovies", async () => getMovies() );
+export const getMovieAsyncThunk = createAsyncThunk("moviesSlice/getMovie", async (movieId: string) => getMovie(movieId) );
 export const likeMovieAsyncThunk = createAsyncThunk("moviesSlice/likeMovie", async (movieId: string) => likeMovie(movieId) );
 export const dislikeMovieAsyncThunk = createAsyncThunk("moviesSlice/dislikeMovie", async (movieId: string) => dislikeMovie(movieId) );
 export const addMovieToMyListAsyncThunk= createAsyncThunk("moviesSlice/addMovieToMyList", async (movieId: string) => addMovieToMyList(movieId) );
@@ -28,6 +36,11 @@ const moviesSlice = createSlice({name: 'MoviesSlice', initialState,
     reducers: {
         setMovieForInfo(state, action){
             state.movieForInfo = action.payload;
+        },
+        filterMoviesByGenre(state, action) {
+            state.filteredMovies = state.movies.filter((movie) =>
+                movie.movieGenres.some((genre) => genre.id === action.payload)
+            );
         }
     },
     extraReducers: builder => {
@@ -65,7 +78,14 @@ const moviesSlice = createSlice({name: 'MoviesSlice', initialState,
                 }
             })
             .addCase(getMoviesAsyncThunk.fulfilled, (state, action) => {
-                state.movies = action.payload?.data?.items || []
+                state.movies = action.payload || [];
+                state.isMoviesLoading = false;
+            })
+            .addCase(getMoviesAsyncThunk.pending, (state, action) => {
+                state.isMoviesLoading = true;
+            })
+            .addCase(getMovieAsyncThunk.fulfilled, (state, action) => {
+                state.movieForWatching = action.payload
             })
             .addCase(likeMovieAsyncThunk.fulfilled, (state, action) => {
                 state.movies = state.movies.map(movie => {
@@ -134,6 +154,6 @@ const moviesSlice = createSlice({name: 'MoviesSlice', initialState,
 });
 
 const {actions, reducer} = moviesSlice;
-export const {setMovieForInfo} = actions;
+export const {setMovieForInfo, filterMoviesByGenre} = actions;
 export const moviesState = (state: RootState) => state.moviesSlice;
 export default reducer;

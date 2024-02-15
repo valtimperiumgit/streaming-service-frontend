@@ -14,6 +14,7 @@ const Main = () => {
                 <MainHeader/>
                 <MainGetStarted/>
             </div>
+
             <MainWelcomePreview/>
             <MainFooter/>
         </div>

@@ -1,0 +1,41 @@
+.episode-field{
+    width: 730px;
+    height: 70px;
+    border-bottom: 1px solid #3f3f3f;
+    border-radius: 1px;
+    color: white;
+    display: flex;
+    align-items: center;
+    font-family: 'NSans-Medium', sans-serif;
+}
+
+.episode-field:hover{
+    background-color: #333333;
+    cursor: pointer;
+}
+
+
+.episode-field-number{
+    color: gray;
+    font-size: 24px;
+    margin-right: 43px;
+    padding-left: 33px;
+}
+
+.episode-field-title{
+    width: 300px;
+}
+
+.episode-field-duration{
+    margin-right: 43px;
+}
+
+.episode-image {
+    visibility: hidden;
+    width: 27px;
+    height: 27px;
+}
+
+.episode-field:hover .episode-image {
+    visibility: visible;
+}

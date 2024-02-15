@@ -54,7 +54,7 @@ const userSlice = createSlice({name: 'UserSlice', initialState,
                     localStorage.setItem("token", action.payload?.data.token)
             })
             .addCase(getUserAsyncThunk.fulfilled, (state, action) => {
-                state.user = action.payload?.data;
+                state.user = action.payload;
             })
             .addCase(loginAsyncThunk.rejected, (state, action) => {
                 state.loginError = action.error.message || null;

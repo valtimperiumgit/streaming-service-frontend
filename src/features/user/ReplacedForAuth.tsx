@@ -11,7 +11,7 @@ const ReplacedForAuth = ({children} : any)=>{
         return children;
     }
 
-    return <Navigate to='/browse' replace/>
+    return <Navigate to='/browse/movies' replace/>
 }
 
 export default ReplacedForAuth

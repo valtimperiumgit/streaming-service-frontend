@@ -6,13 +6,14 @@ import {Genre} from "../../../../features/genres/GenresModels";
 import {Actor} from "../../../../features/actors/ActorsModels";
 import {
     addMovieToMyListAsyncThunk,
-    dislikeMovieAsyncThunk,
+    dislikeMovieAsyncThunk, getMovieAsyncThunk,
     likeMovieAsyncThunk,
     moviesState,
     removeMovieFromMyListAsyncThunk
 } from "../../../../features/movies/store/MoviesSlice";
 import {AppDispatch} from "../../../../store/Store";
 import {useDispatch, useSelector} from "react-redux";
+import {useNavigate} from "react-router-dom";
 
 interface MovieInfoModalProps{
     close: () => void;
@@ -20,6 +21,8 @@ interface MovieInfoModalProps{
 
 const MovieInfoModal = (props: MovieInfoModalProps) => {
     const dispatch: AppDispatch = useDispatch();
+    const navigate = useNavigate();
+
     let movie = useSelector(moviesState).movieForInfo;
     const [videoSource, setVideoSource] = useState<string>(movie?.trailerUrl || "");
     const [likePercentage, setLikePercentage] = useState<number>(100);
@@ -48,7 +51,7 @@ const MovieInfoModal = (props: MovieInfoModalProps) => {
             const dataLength = data.length;
             return data.map((item, index) => {
                 const separator = index === dataLength - 1 ? '.' : ', ';
-                return <span key={item.id}>{item.name}{separator}</span>;
+                return <span key={item.id + " " + index}>{item.name}{separator}</span>;
             })
         }
     }
@@ -88,7 +91,8 @@ const MovieInfoModal = (props: MovieInfoModalProps) => {
                          alt=""/>
 
                     <div className="movie-info-modal-actions">
-                        <div className="movie-info-modal-actions-play">
+                        <div onClick={() => {navigate("watch", {state: {movieId: movie?.id, watchedTime: localStorage.getItem(movie?.id || "")}})}} className="movie-info-modal-actions-play">
+
                             <img className="movie-info-modal-icon" width="30px" height="30px"
                                  src="/images/play-button.png"
                                  alt=""/> Play

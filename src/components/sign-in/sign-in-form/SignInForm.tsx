@@ -27,7 +27,7 @@ const SignInForm = () => {
             dispatch(loginAsyncThunk(values))
                 .then((res) => {
                     if(res.meta.requestStatus !== "rejected"){
-                        navigate("/browse");
+                        navigate("/browse/movies");
                     }
                 })
         },

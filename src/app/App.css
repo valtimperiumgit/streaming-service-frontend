@@ -15,7 +15,11 @@
 .App {
   overflow-x: hidden;
   text-align: center;
+  height: 100%;
+  width: 100%;
+  background-color: #141414;
 }
+
 
 * {
   -ms-overflow-style: none;  /* для Internet Explorer и Edge */

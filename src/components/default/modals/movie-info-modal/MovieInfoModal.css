@@ -148,6 +148,7 @@
 .movie-info-modal-second-part{
     padding: 30px 50px 50px 50px;
     display: flex;
+    flex-direction: column;
     width: 700px;
     margin-bottom: 50px;
 }

@@ -1,0 +1,143 @@
+.player-wrapper {
+    position: relative;
+    width: 100%; /* Ширина на весь экран */
+    height: 100vh;
+    overflow: hidden;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.react-player {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.controls-overlay {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    width: 100%;
+    z-index: 1;
+}
+
+.controls-overlay-left{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    margin-right: 200px;
+    padding-left: 200px;
+}
+
+.controls-overlay-right{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding-right: 210px;
+    width: 800px;
+}
+
+.controls-overlay button,
+.controls-overlay input {
+    margin: 0 10px;
+}
+
+.controls-overlay-left-control{
+    margin-right: 22px;
+}
+
+.time-display {
+    position: absolute;
+    left: 93%;
+    top: -45px;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 16px;
+    margin-bottom: 10px; /* Отступ от ползунка перемотки */
+}
+
+.seek-slider {
+    -webkit-appearance: none; /* Убрать стандартный стиль для Chrome */
+    width: 75%;
+    height: 12px; /* Высота ползунка */
+    border-radius: 5px; /* Скругление углов */
+    background: rgba(133, 133, 133, 0.66); /* Красный цвет ползунка Netflix */
+    cursor: pointer; /* Изменение курсора при наведении */
+    margin: 0 auto; /* Выравнивание по центру */
+    position: relative; /* Изменено с absolute на relative */
+    top: -40px; /* Расстояние от верхнего края контролов */
+}
+
+.thumb {
+    -webkit-appearance: none;
+    height: 12px; /* Высота ручки ползунка */
+    width: 12px; /* Ширина ручки ползунка */
+    border-radius: 50%; /* Скругление ручки ползунка */
+    background: #ec0000; /* Цвет ручки */
+    touch-action: none;
+    text-decoration: none;
+}
+
+.track {
+    background: none;
+    touch-action: none;
+    text-decoration: none;
+}
+
+.controls-overlay {
+    position: absolute;
+    bottom: 20px; /* Поднимите немного выше, если ползунок перекрывает другие элементы */
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    transform: none; /* Удалите это свойство */
+    flex-direction: column; /* Стек элементы вертикально */
+}
+
+.controls-overlay-container{
+    display: flex;
+}
+
+input[type='range'].volume {
+    -webkit-appearance: none; /* Убирает стандартный стиль для WebKit/Blink */
+    appearance: none;
+    width: 100%; /* Ширина ползунка */
+    height: 8px; /* Высота трека ползунка */
+    background: red; /* Цвет фона трека */
+    outline: none; /* Убирает контур вокруг элемента при клике */
+    opacity: 0.7; /* Прозрачность ползунка */
+    -webkit-transition: .2s; /* Плавность перехода для WebKit/Blink */
+    transition: opacity .2s;
+}
+
+input[type='range'].volume::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Убирает стандартный стиль для WebKit/Blink */
+    appearance: none;
+    width: 25px; /* Ширина ползунка */
+    height: 25px; /* Высота ползунка */
+    background: red; /* Цвет ползунка */
+    cursor: pointer; /* Форма курсора */
+    border-radius: 50%; /* Скругление углов */
+}
+
+input[type='range'].volume::-moz-range-thumb {
+    width: 25px; /* Ширина ползунка */
+    height: 25px; /* Высота ползунка */
+    background: red; /* Цвет ползунка */
+    cursor: pointer; /* Форма курсора */
+    border-radius: 50%; /* Скругление углов */
+}
+
+input[type='range'].volume::-moz-range-track {
+    width: 100%; /* Ширина трека */
+    height: 8px; /* Высота трека */
+    background: red; /* Цвет фона трека */
+}
+
+input[type='range'].volume:focus::-webkit-slider-thumb {
+    opacity: 1; /* Полная непрозрачность при фокусе */
+}

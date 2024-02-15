@@ -51,7 +51,8 @@ export const checkUserExistingByEmail = async (email: string) => {
 
 export const getUser = async () => {
     try {
-        return await authorizedAxiosInstance.get<User>(`${API_URL}/api/user`);
+        let a = await authorizedAxiosInstance.get<User>(`${API_URL}/api/user`);
+        return a.data;
     }
     catch (error) {
         if (axios.isAxiosError(error)) {
